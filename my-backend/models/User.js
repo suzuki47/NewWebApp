@@ -1,15 +1,14 @@
 const mongoose = require('mongoose');
-
 const userSchema = new mongoose.Schema({
-  name: {
+  name: { // 従業員の名前フィールド
     type: String,
     required: true
   },
-  hourlyWage: { // 時給フィールドを追加
+  hourlyWage: { // 時給フィールド
     type: Number,
     required: true
   },
-  position: {
+  position: { // 役職フィールド
       type: String,
       required: true
   }

@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
-
 const opinionSchema = new mongoose.Schema({
-  content: {
+  content: { // 意見フィールド
     type: String,
     required: true
   },
-  createdAt: {
+  createdAt: { // 投稿日時フィールド
     type: Date,
     default: Date.now
   }

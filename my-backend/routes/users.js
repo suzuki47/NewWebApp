@@ -5,7 +5,7 @@ const User = require('../models/User');
 // ユーザーの一覧を取得
 router.get('/', async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await User.find(); // User.find()は、特定の条件を指定せずに全てのドキュメントを取得するためのMongoDBのクエリ
     res.json(users);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -15,9 +15,9 @@ router.get('/', async (req, res) => {
 // 新しいユーザーを作成
 router.post('/', async (req, res) => {
   const user = new User({
-    name: req.body.name,
-    hourlyWage: req.body.hourlyWage, // 時給を受け取る
-    position: req.body.position,
+    name: req.body.name, // 従業員の名前
+    hourlyWage: req.body.hourlyWage, // 時給
+    position: req.body.position, // 役職
   });
 
   try {
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// ユーザー情報の更新
+// ユーザー情報の更新（未実装）
 router.put('/:id', async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });

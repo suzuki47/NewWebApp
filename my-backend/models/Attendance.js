@@ -1,20 +1,14 @@
 const mongoose = require('mongoose');
-
-//const attendanceSchema = new mongoose.Schema({
-//  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-//  checkIn: { type: Date, required: true },
-//  checkOut: Date,
-//});
 const attendanceSchema = new mongoose.Schema({
-  user: {
+  user: { // ユーザフィールド
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  checkIn: {
+  checkIn: { // 出勤フィールド
     type: Date,
     required: true
   },
-  checkOut: {
+  checkOut: { // 退勤フィールド
     type: Date
   }
 });

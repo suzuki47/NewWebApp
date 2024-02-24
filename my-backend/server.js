@@ -24,7 +24,7 @@ app.use(express.json()); // JSONデータの解析に必要
 // ルートモジュールのインポート
 const usersRoutes = require('./routes/users');
 const attendancesRoutes = require('./routes/attendances');
-const opinionsRoutes = require('./routes/opinions'); // パスは適宜調整
+const opinionsRoutes = require('./routes/opinions'); 
 
 // ルートへのルートモジュールの割り当て
 app.use('/api/users', usersRoutes);

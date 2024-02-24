@@ -1,14 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Opinion = require('../models/Opinion');
-
-// ダミーの意見データ
-let opinions = [
-  { id: 1, content: "もっと休憩時間がほしいです。" },
-  { id: 2, content: "オフィスの環境が快適でとても良いです。" },
-  // その他の意見データ
-];
-
+// 意見投稿の動作
 router.post('/', async (req, res) => {
   try {
     const opinion = new Opinion({
@@ -24,12 +17,12 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
   // パスワードがクエリパラメータから提供されると仮定
   const password = req.query.password;
-  if (password !== '7777') {
+  if (password !== '7777') { // 今回はパスワードを7777と仮定する
     return res.status(401).json({ message: 'Unauthorized' });
   }
 
   try {
-    const opinions = await Opinion.find();
+    const opinions = await Opinion.find(); // Opinion.find()は、特定の条件を指定せずに全てのドキュメントを取得するためのMongoDBのクエリである
     res.json(opinions);
   } catch (error) {
     res.status(500).json({ message: error.message });
